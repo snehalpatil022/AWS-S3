@@ -76,9 +76,88 @@ Your files should upload in a few minutes! Choose Close when you see the green U
 
 ![step2 2](https://github.com/user-attachments/assets/a1b2b802-ab1d-4c75-9e75-95b99d213546)
 
+**💡 What does website hosting mean?
+Website hosting is what makes your website public on the internet.
+Even if you perfect an HTML file, no one else can see it when it's stored as a local file on your computer! Website hosting = storing your HTML file (and the other files for your website) on a web server, so it's accessible online.
+By configuring your S3 bucket for hosting, we're telling this bucket: "please create a URL that will take anyone to a page that displays the HTML file I just uploaded** 
+
+
+Make sure you're back in your bucket's page. If you're not sure, choose buckets on the left hand side navigation bar, and then choose the bucket you created for this project.
+Choose the Properties tab.
+Scroll allllllllll the way down to the Static website hosting panel.
+Choose Edit.
+Configure the following settings:
+Static web hosting: Choose Enable.
+Hosting type: Choose Host a static website.
+Index document: Enter index.html
+
+![step3 1](https://github.com/user-attachments/assets/0e164921-130e-4ab0-a7c3-4c51d7665c15)
+
+Choose Save changes.
+In the Static website hosting panel under bucket website endpoint, click on the URL.
+An error! 👀
+
+![high-step3 1](https://github.com/user-attachments/assets/cdbf7a58-c651-4c5d-85bd-f08a8e0e3b59)
+
+**💡 Why did I get this error?
+Objects (in this case, the HTML and images files you uploaded) are private by default. This default setting helps keep your account's data secure.
+The error message you're seeing is telling you that your static website is being hosted by S3, but the actual HTML/image files you've uploaded are still private. It's kind of like having a bucket on display, so everyone can see the bucket - but the contents are covered up, preventing anyone from seeing what's inside.
+To solve this error, we need to set the permission of the objects to public - this is why we enabled ACLs in Task 1**
+
+Use ACLs to make objects in your S3 bucket public
+
+Let's make the uploaded objects publicly accessible so users can view your website.
+
+Keep the error message tab open and switch back to the Amazon S3 console tab.
+Would you still remember how to view your S3 bucket's objects? Try finding your bucket's Objects page and making your objects public using ACLs.
+
+.... feeling a little stuck?
+
+No worries! If you're stuck, head to the Objects tab.
+Select the checkboxes next to your index.html file and the folder of website assets.
+In the Actions dropdown, choose Make public using ACL.
+
+![high-step4 1](https://github.com/user-attachments/assets/b038c735-e6ee-414a-91ec-6549c9295831)
+
+Choose Make public.
+Once the green banner pops up, choose Close.
+
+![high-step4 2](https://github.com/user-attachments/assets/f19e4b97-ab5a-4f41-9986-747d0209e4aa)
+
+Return to the web browser tab that has the 403 Forbidden message.
+Refresh the tab.
+
+![high-step4 3](https://github.com/user-attachments/assets/dd9983c9-2f6f-4f76-a670-291aa8f3a9cb)
+
 
 
             
+
+**Delete your resources**
+
+Make sure you delete all your resources to avoid getting charged. This is a super important task for every single project you set up.
+
+We challenge you to try to give this a go yourself 💪 Do you think you can delete the resources you've created today? Don't forget to take screenshots of your work before they're gone!
+
+If you're feeling stuck (we've all been there!), here's a little guide:
+
+To delete an S3 object, head back to your browser tab with the AWS Management Console.
+Select the Objects tab.
+Select the checkboxes next to the three objects in your bucket, and choose Delete.
+Type delete to confirm.
+Select Delete objects.
+
+![high-delete1](https://github.com/user-attachments/assets/8de3f253-e0a3-4ad9-8254-02222aaf9ecf)
+
+Did you run into an error with deleting index.html?
+
+Head back to the Permissions tab and select Delete in the Bucket policy panel.
+Delete index.html again!
+Now, head back to the Buckets page (it's on the left-hand navigation panel).
+Select your bucket, and choose Delete.
+Type your bucket's name to confirm the deletion, and then click Delete bucket.
+
+![high-delete2](https://github.com/user-attachments/assets/f86a6f23-d1b6-410f-a2d4-3babb75c87bf)
 
 
 
